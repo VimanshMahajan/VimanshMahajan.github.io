@@ -7,8 +7,20 @@
     <title>Vimansh Mahajan | Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
+    <!-- Cursor Trail Effect -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <canvas id="particles-canvas"></canvas>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -32,49 +44,160 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm <span class="highlight">Vimansh Mahajan</span></h1>
-                <h2>Software Engineer & ML | NLP Enthusiast</h2>
-                <p>Computer Science Engineering student at IIIT-Delhi with expertise in Full Stack Development, Machine Learning, and Natural Language Processing</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+            <div class="hero-text" data-aos="fade-up">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-btn close"></span>
+                            <span class="terminal-btn minimize"></span>
+                            <span class="terminal-btn maximize"></span>
+                        </div>
+                        <span class="terminal-title">vimansh@portfolio:~$</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" id="typed-text"></span>
+                            <span class="terminal-cursor">|</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/VimanshMahajan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/vimansh-mahajan-b26a77268/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://leetcode.com/u/vimansh22572/" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
-                    <a href="https://codeforces.com/profile/Vimansh_Mahajan" target="_blank" aria-label="Codeforces"><i class="fas fa-trophy"></i></a>
+
+                <h1 class="glitch-text" data-text="Hi, I'm Vimansh Mahajan">
+                    Hi, I'm <span class="highlight animated-gradient">Vimansh Mahajan</span>
+                </h1>
+
+                <div class="role-container">
+                    <h2>
+                        <span class="code-bracket">&lt;</span>
+                        <span id="role-text" class="role-text">Software Engineer</span>
+                        <span class="code-bracket">/&gt;</span>
+                    </h2>
+                </div>
+
+                <p class="hero-description">Computer Science Engineering student at IIIT-Delhi with expertise in Full Stack Development, Machine Learning, and Natural Language Processing</p>
+
+                <!-- Animated Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon"><i class="fas fa-building"></i></div>
+                        <div class="stat-value">Fortune 500</div>
+                        <div class="stat-label">SWE Intern @ BNY</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon"><i class="fas fa-flask"></i></div>
+                        <div class="stat-value">Researcher</div>
+                        <div class="stat-label">@ IIIT Delhi</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon"><i class="fas fa-users-cog"></i></div>
+                        <div class="stat-value">Leadership</div>
+                        <div class="stat-label">TEDx | Senate | Placement</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#contact" class="btn btn-primary magnetic">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary magnetic">
+                        <span>View Projects</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="social-links" data-aos="fade-up" data-aos-delay="500">
+                    <a href="https://github.com/VimanshMahajan" target="_blank" aria-label="GitHub" class="magnetic social-icon">
+                        <i class="fab fa-github"></i>
+                        <span class="social-tooltip">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vimansh-mahajan-b26a77268/" target="_blank" aria-label="LinkedIn" class="magnetic social-icon">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="social-tooltip">LinkedIn</span>
+                    </a>
+                    <a href="https://leetcode.com/u/vimansh22572/" target="_blank" aria-label="LeetCode" class="magnetic social-icon">
+                        <i class="fas fa-code"></i>
+                        <span class="social-tooltip">LeetCode</span>
+                    </a>
+                    <a href="https://codeforces.com/profile/Vimansh_Mahajan" target="_blank" aria-label="Codeforces" class="magnetic social-icon">
+                        <i class="fas fa-trophy"></i>
+                        <span class="social-tooltip">Codeforces</span>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="Assets/Vimansh_Mahajan.jpg" alt="Vimansh Mahajan">
+
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                <div class="image-container floating">
+                    <div class="image-glow"></div>
+                    <img src="Assets/Vimansh_Mahajan.jpg" alt="Vimansh Mahajan">
+                    <div class="image-frame"></div>
+                    <div class="scan-line"></div>
+                </div>
+
+                <!-- Floating Tech Icons -->
+                <div class="floating-icon icon-1" data-aos="fade" data-aos-delay="600">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="floating-icon icon-2" data-aos="fade" data-aos-delay="700">
+                    <i class="fab fa-react"></i>
+                </div>
+                <div class="floating-icon icon-3" data-aos="fade" data-aos-delay="800">
+                    <i class="fab fa-java"></i>
+                </div>
+                <div class="floating-icon icon-4" data-aos="fade" data-aos-delay="900">
+                    <i class="fab fa-node-js"></i>
+                </div>
             </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">01.</span> About Me
+                <span class="title-line"></span>
+            </h2>
             <div class="about-content">
-                <p>I'm a Computer Science Engineering student at IIIT-Delhi, specializing in building scalable full-stack applications and developing machine learning solutions for real-world problems.</p>
-                <p>My experience spans from software engineering at Bank of New York to research in NLP and computational chemistry. I'm passionate about leveraging technology to create impactful solutions and constantly exploring new technologies to solve complex challenges.</p>
+                <p data-aos="fade-up" data-aos-delay="100">I'm a Computer Science Engineering student at IIIT-Delhi, specializing in building scalable full-stack applications and developing machine learning solutions for real-world problems.</p>
+                <p data-aos="fade-up" data-aos-delay="200">My experience spans from software engineering at Bank of New York to research in NLP and computational chemistry. I'm passionate about leveraging technology to create impactful solutions and constantly exploring new technologies to solve complex challenges.</p>
+
                 <div class="achievements">
-                    <div class="achievement-item">
-                        <i class="fas fa-award"></i>
+                    <div class="achievement-item glass-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="achievement-badge">
+                            <div class="badge-glow"></div>
+                            <i class="fas fa-award"></i>
+                        </div>
                         <h3>Dean's List Award</h3>
                         <p>IIITD Academics (2024-25)</p>
+                        <div class="achievement-shine"></div>
                     </div>
-                    <div class="achievement-item">
-                        <i class="fas fa-trophy"></i>
+                    <div class="achievement-item glass-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="achievement-badge">
+                            <div class="badge-glow"></div>
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Flipkart GRiD 7.0</h3>
+                        <p>National Semi-Finalist (2024)</p>
+                        <div class="achievement-shine"></div>
+                    </div>
+                    <div class="achievement-item glass-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="achievement-badge">
+                            <div class="badge-glow"></div>
+                            <i class="fas fa-code"></i>
+                        </div>
                         <h3>Adobe GenSolve</h3>
                         <p>Top 5% Finalist (2024)</p>
-                    </div>
-                    <div class="achievement-item">
-                        <i class="fas fa-code"></i>
-                        <h3>JEE Advanced</h3>
-                        <p>AIR: 10,109 (2022)</p>
+                        <div class="achievement-shine"></div>
                     </div>
                 </div>
             </div>
@@ -84,13 +207,18 @@
     <!-- Education Section -->
     <section id="education" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">02.</span> Education
+                <span class="title-line"></span>
+            </h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-header">
                             <h3>Indraprastha Institute of Information Technology, Delhi (IIIT-Delhi)</h3>
-                            <span class="timeline-date">2022 - Ongoing</span>
+                            <span class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> 2022 - Ongoing
+                            </span>
                         </div>
                         <h4>Bachelor of Technology (B.Tech.) in Computer Science Engineering</h4>
                         <ul class="timeline-details">
@@ -99,6 +227,7 @@
                             <li><strong>Leadership:</strong> Organiser @ TEDxIIITD, Member @ Placement Cell IIITD, Student Senate Representative</li>
                             <li><strong>Entrance:</strong> JEE Advanced 2022 Qualified (AIR: 10,109), JEE Mains 2022 99 %ile (AIR: 9,200)</li>
                         </ul>
+                        <div class="card-glow"></div>
                     </div>
                 </div>
             </div>
@@ -108,15 +237,20 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">03.</span> Professional Experience
+                <span class="title-line"></span>
+            </h2>
             <div class="experience-grid">
-                <div class="experience-card">
+                <div class="experience-card glass-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="experience-header">
                         <div>
                             <h3>Software Engineer Intern</h3>
                             <h4>Bank of New York (BNY)</h4>
                         </div>
-                        <span class="date">May 2025 - July 2025</span>
+                        <span class="date">
+                            <i class="fas fa-clock"></i> May 2025 - July 2025
+                        </span>
                     </div>
                     <ul class="experience-details">
                         <li>Built and deployed a <strong>content automation platform</strong> using Angular, Spring Boot, Oracle DB, and Python-integrated LLM</li>
@@ -124,22 +258,25 @@
                         <li>Managed containerization and deployment on <strong>Google App Engine</strong></li>
                     </ul>
                     <div class="tech-tags">
-                        <span>Angular</span>
-                        <span>Spring Boot</span>
-                        <span>Oracle DB</span>
-                        <span>Python</span>
-                        <span>LLM</span>
-                        <span>GCP</span>
+                        <span class="magnetic">Angular</span>
+                        <span class="magnetic">Spring Boot</span>
+                        <span class="magnetic">Oracle DB</span>
+                        <span class="magnetic">Python</span>
+                        <span class="magnetic">LLM</span>
+                        <span class="magnetic">GCP</span>
                     </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="experience-card">
+                <div class="experience-card glass-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="experience-header">
                         <div>
                             <h3>Undergraduate Researcher</h3>
                             <h4>Complex Systems (CoSy) Lab</h4>
                         </div>
-                        <span class="date">Jan 2025 - May 2025</span>
+                        <span class="date">
+                            <i class="fas fa-clock"></i> Jan 2025 - May 2025
+                        </span>
                     </div>
                     <ul class="experience-details">
                         <li>Built <strong>RecipeGPT</strong>, a recipe generation system using the Recipe1M dataset, achieving human-like outputs with <strong>BERTScore > 0.85</strong> and ROUGE score of 0.32</li>
@@ -147,21 +284,24 @@
                         <li>Developed a 3-stage <strong>GPT-2 fine-tuning pipeline</strong>: pretrained on 100k+ recipe instructions, conditioned on raw ingredients and titles, then fine-tuned with NER-enhanced inputs</li>
                     </ul>
                     <div class="tech-tags">
-                        <span>GPT-2</span>
-                        <span>NER</span>
-                        <span>PyTorch</span>
-                        <span>NLP</span>
-                        <span>Transformers</span>
+                        <span class="magnetic">GPT-2</span>
+                        <span class="magnetic">NER</span>
+                        <span class="magnetic">PyTorch</span>
+                        <span class="magnetic">NLP</span>
+                        <span class="magnetic">Transformers</span>
                     </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="experience-card">
+                <div class="experience-card glass-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="experience-header">
                         <div>
                             <h3>Undergraduate Researcher</h3>
                             <h4>TavLab</h4>
                         </div>
-                        <span class="date">Aug 2024 - Dec 2024</span>
+                        <span class="date">
+                            <i class="fas fa-clock"></i> Aug 2024 - Dec 2024
+                        </span>
                     </div>
                     <ul class="experience-details">
                         <li>Predicted <strong>IC50 values for HDAC6 inhibitors</strong> using ADMET and BlueDesc datasets by extracting molecular descriptors</li>
@@ -169,11 +309,12 @@
                         <li>Accelerated compound screening and aided potential drug candidate identification through computational chemistry</li>
                     </ul>
                     <div class="tech-tags">
-                        <span>Machine Learning</span>
-                        <span>Python</span>
-                        <span>Bioinformatics</span>
-                        <span>Data Analysis</span>
+                        <span class="magnetic">Machine Learning</span>
+                        <span class="magnetic">Python</span>
+                        <span class="magnetic">Bioinformatics</span>
+                        <span class="magnetic">Data Analysis</span>
                     </div>
+                    <div class="card-glow"></div>
                 </div>
             </div>
         </div>
@@ -182,75 +323,111 @@
     <!-- Projects Section -->
     <section id="projects" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">04.</span> Featured Projects
+                <span class="title-line"></span>
+            </h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>OptiWealth: Portfolio Management & Analytics</h3>
-                        <span class="date">Nov 2025</span>
-                    </div>
-                    <p>Built a comprehensive portfolio management platform with Spring Boot backend and Python microservices delivering advanced financial analytics, risk diagnostics, and AI-powered insights.</p>
-                    <ul class="project-highlights">
-                        <li>Implemented VaR/CVaR risk metrics, ARIMA/GARCH forecasting, and Monte Carlo simulations</li>
-                        <li>Built efficient frontier optimization with Sharpe ratio maximization</li>
-                        <li>Integrated real-time market data via yFinance with JWT-secured REST APIs</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span>Spring Boot</span>
-                        <span>Flask</span>
-                        <span>Python</span>
-                        <span>PostgreSQL</span>
-                        <span>NumPy</span>
-                        <span>Pandas</span>
-                        <span>JWT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/VimanshMahajan/OptiWealth" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Healthcare Answer Summarisation</h3>
-                        <span class="date">Apr 2025</span>
-                    </div>
-                    <p>Built a BART-large-CNN + LoRA pipeline to generate perspective-specific summaries from medical Q&A data. Outperformed FlanT5 baseline by +3.24 BLEU and +0.0355 BERTScore.</p>
-                    <ul class="project-highlights">
-                        <li>Designed dual-head classifier for perspective classification</li>
-                        <li>Implemented selective fine-tuning on hard examples (BERTScore < 0.84)</li>
-                        <li>Achieved BLEU 5.61, BERTScore 0.8782</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>PyTorch</span>
-                        <span>BART</span>
-                        <span>LoRA</span>
-                        <span>Transformers</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/VimanshMahajan/NLP-Healthcare-Answer-Summarization" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                <div class="project-card-wrapper" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card glass-card">
+                        <div class="project-number">01</div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>OptiWealth: Portfolio Management & Analytics</h3>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i> Nov 2025
+                            </span>
+                        </div>
+                        <p>Built a comprehensive portfolio management platform with Spring Boot backend and Python microservices delivering advanced financial analytics, risk diagnostics, and AI-powered insights.</p>
+                        <ul class="project-highlights">
+                            <li>Implemented VaR/CVaR risk metrics, ARIMA/GARCH forecasting, and Monte Carlo simulations</li>
+                            <li>Built efficient frontier optimization with Sharpe ratio maximization</li>
+                            <li>Integrated real-time market data via yFinance with JWT-secured REST APIs</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="magnetic">Spring Boot</span>
+                            <span class="magnetic">Flask</span>
+                            <span class="magnetic">Python</span>
+                            <span class="magnetic">PostgreSQL</span>
+                            <span class="magnetic">NumPy</span>
+                            <span class="magnetic">Pandas</span>
+                            <span class="magnetic">JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VimanshMahajan/OptiWealth" target="_blank" class="project-link magnetic">
+                                <i class="fab fa-github"></i> <span>View Code</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Voice-Controlled AI Assistant</h3>
-                        <span class="date">Dec 2023</span>
+                <div class="project-card-wrapper" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card glass-card">
+                        <div class="project-number">02</div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Healthcare Answer Summarisation</h3>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i> Apr 2025
+                            </span>
+                        </div>
+                        <p>Built a BART-large-CNN + LoRA pipeline to generate perspective-specific summaries from medical Q&A data. Outperformed FlanT5 baseline by +3.24 BLEU and +0.0355 BERTScore.</p>
+                        <ul class="project-highlights">
+                            <li>Designed dual-head classifier for perspective classification</li>
+                            <li>Implemented selective fine-tuning on hard examples (BERTScore < 0.84)</li>
+                            <li>Achieved BLEU 5.61, BERTScore 0.8782</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="magnetic">Python</span>
+                            <span class="magnetic">PyTorch</span>
+                            <span class="magnetic">BART</span>
+                            <span class="magnetic">LoRA</span>
+                            <span class="magnetic">Transformers</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VimanshMahajan/NLP-Healthcare-Answer-Summarization" target="_blank" class="project-link magnetic">
+                                <i class="fab fa-github"></i> <span>View Code</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
                     </div>
-                    <p>Voice-controlled assistant using Python with OpenAI's API for intelligent response generation, featuring speech recognition and natural voice synthesis.</p>
-                    <ul class="project-highlights">
-                        <li>Integrated OpenAI API for intelligent responses</li>
-                        <li>Speech recognition for voice input</li>
-                        <li>Text-to-speech using pyttsx3</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>OpenAI API</span>
-                        <span>Speech Recognition</span>
-                        <span>pyttsx3</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/VimanshMahajan/AI_Voice_Assistant" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                </div>
+
+                <div class="project-card-wrapper" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card glass-card">
+                        <div class="project-number">03</div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <h3>Voice-Controlled AI Assistant</h3>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i> Dec 2023
+                            </span>
+                        </div>
+                        <p>Voice-controlled assistant using Python with OpenAI's API for intelligent response generation, featuring speech recognition and natural voice synthesis.</p>
+                        <ul class="project-highlights">
+                            <li>Integrated OpenAI API for intelligent responses</li>
+                            <li>Speech recognition for voice input</li>
+                            <li>Text-to-speech using pyttsx3</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="magnetic">Python</span>
+                            <span class="magnetic">OpenAI API</span>
+                            <span class="magnetic">Speech Recognition</span>
+                            <span class="magnetic">pyttsx3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VimanshMahajan/AI_Voice_Assistant" target="_blank" class="project-link magnetic">
+                                <i class="fab fa-github"></i> <span>View Code</span>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
                     </div>
                 </div>
             </div>
@@ -260,71 +437,118 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">05.</span> Technical Skills
+                <span class="title-line"></span>
+            </h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span>C++</span>
-                        <span>Python</span>
-                        <span>Java</span>
-                        <span>JavaScript</span>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <span class="magnetic skill-tag">
+                            <i class="fab fa-python"></i> C++
+                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </span>
+                        <span class="magnetic skill-tag">
+                            <i class="fab fa-python"></i> Python
+                            <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
+                        </span>
+                        <span class="magnetic skill-tag">
+                            <i class="fab fa-java"></i> Java
+                            <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                        </span>
+                        <span class="magnetic skill-tag">
+                            <i class="fab fa-js"></i> JavaScript
+                            <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                        </span>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
-                    <div class="skill-tags">
-                        <span>Spring Boot</span>
-                        <span>Node.js</span>
-                        <span>Express.js</span>
-                        <span>Angular</span>
-                        <span>Bootstrap</span>
-                        <span>PyTorch</span>
-                        <span>Hugging Face</span>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <span class="magnetic">Spring Boot</span>
+                        <span class="magnetic">Node.js</span>
+                        <span class="magnetic">Express.js</span>
+                        <span class="magnetic">Angular</span>
+                        <span class="magnetic">Bootstrap</span>
+                        <span class="magnetic">PyTorch</span>
+                        <span class="magnetic">Hugging Face</span>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span>PostgreSQL</span>
-                        <span>MySQL</span>
-                        <span>Oracle DB</span>
-                        <span>Git</span>
-                        <span>JUnit</span>
-                        <span>REST APIs</span>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-database"></i> Databases & Tools</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <span class="magnetic">PostgreSQL</span>
+                        <span class="magnetic">MySQL</span>
+                        <span class="magnetic">Oracle DB</span>
+                        <span class="magnetic">Git</span>
+                        <span class="magnetic">JUnit</span>
+                        <span class="magnetic">REST APIs</span>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> Specializations</h3>
-                    <div class="skill-tags">
-                        <span>Machine Learning</span>
-                        <span>Natural Language Processing</span>
-                        <span>Full Stack Development</span>
-                        <span>Data Structures & Algorithms</span>
-                        <span>System Design</span>
-                        <span>Computer Networks</span>
-                        <span>Network Science</span>
-                        <span>DBMS</span>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-brain"></i> Specializations</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <span class="magnetic">Machine Learning</span>
+                        <span class="magnetic">Natural Language Processing</span>
+                        <span class="magnetic">Full Stack Development</span>
+                        <span class="magnetic">Data Structures & Algorithms</span>
+                        <span class="magnetic">System Design</span>
+                        <span class="magnetic">Computer Networks</span>
+                        <span class="magnetic">Network Science</span>
+                        <span class="magnetic">DBMS</span>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
-                    <div class="skill-tags">
-                        <a href="https://drive.google.com/file/d/1Hhd6CnM0SrQlH_ezH8OBUBkIfLFu_m0l/view" target="_blank" style="text-decoration: none;"><span>Ethical Hacking (Udemy)</span></a>
-                        <a href="https://www.udemy.com/certificate/UC-2bf828ac-dc3d-4a85-bc8d-2d7c7b3a3dae/" target="_blank" style="text-decoration: none;"><span>Complete Python Bootcamp (Udemy)</span></a>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <a href="https://drive.google.com/file/d/1Hhd6CnM0SrQlH_ezH8OBUBkIfLFu_m0l/view" target="_blank" class="skill-link magnetic">
+                            <span><i class="fas fa-shield-alt"></i> Ethical Hacking</span>
+                        </a>
+                        <a href="https://www.udemy.com/certificate/UC-2bf828ac-dc3d-4a85-bc8d-2d7c7b3a3dae/" target="_blank" class="skill-link magnetic">
+                            <span><i class="fab fa-python"></i> Python Bootcamp</span>
+                        </a>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-trophy"></i> Competitive Programming</h3>
-                    <div class="skill-tags">
-                        <a href="https://leetcode.com/u/vimansh22572/" target="_blank" style="text-decoration: none;"><span>LeetCode</span></a>
-                        <a href="https://codeforces.com/profile/Vimansh_Mahajan" target="_blank" style="text-decoration: none;"><span>Codeforces (Pupil)</span></a>
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-trophy"></i> Competitive Programming</h3>
+                        <div class="header-glow"></div>
                     </div>
+                    <div class="skill-tags">
+                        <a href="https://codeforces.com/profile/Vimansh_Mahajan" target="_blank" class="skill-link magnetic">
+                            <span><i class="fas fa-star"></i> Codeforces</span>
+                        </a>
+                        <a href="https://leetcode.com/u/vimansh22572/" target="_blank" class="skill-link magnetic">
+                            <span><i class="fas fa-code"></i> LeetCode</span>
+                        </a>
+                    </div>
+                    <div class="card-glow"></div>
                 </div>
             </div>
         </div>
@@ -333,21 +557,42 @@
     <!-- Contact Section -->
     <section id="contact" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">06.</span> Get In Touch
+                <span class="title-line"></span>
+            </h2>
             <div class="contact-content">
-                <p>I'm currently open to new opportunities and collaborations. Feel free to reach out!</p>
+                <p data-aos="fade-up" data-aos-delay="100">I'm currently open to new opportunities and collaborations. Feel free to reach out!</p>
                 <div class="contact-info">
-                    <a href="mailto:vimansh22572@iiitd.ac.in" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>vimansh22572@iiitd.ac.in</span>
+                    <a href="mailto:vimansh22572@iiitd.ac.in" class="contact-item glass-card magnetic" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <span>vimansh22572@iiitd.ac.in</span>
+                        </div>
+                        <div class="card-glow"></div>
                     </a>
-                    <a href="https://www.linkedin.com/in/vimansh-mahajan-b26a77268/" target="_blank" class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/vimansh-mahajan-b26a77268/" target="_blank" class="contact-item glass-card magnetic" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <span>Connect with me</span>
+                        </div>
+                        <div class="card-glow"></div>
                     </a>
-                    <a href="https://github.com/VimanshMahajan" target="_blank" class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
+                    <a href="https://github.com/VimanshMahajan" target="_blank" class="contact-item glass-card magnetic" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <span>Check out my code</span>
+                        </div>
+                        <div class="card-glow"></div>
                     </a>
                 </div>
             </div>
@@ -357,11 +602,21 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Vimansh Mahajan. All rights reserved.</p>
-            <p>Built with HTML, CSS, and JavaScript</p>
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Vimansh Mahajan. All rights reserved.</p>
+                    <p>Designed & Built with <i class="fas fa-heart"></i> using HTML, CSS, and JavaScript</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/VimanshMahajan" target="_blank" class="magnetic"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vimansh-mahajan-b26a77268/" target="_blank" class="magnetic"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/vimansh22572/" target="_blank" class="magnetic"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
