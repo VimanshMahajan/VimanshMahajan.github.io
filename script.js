@@ -210,50 +210,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ==========================================
-// TERMINAL TYPING EFFECT
-// ==========================================
-const typedTextElement = document.getElementById('typed-text');
-if (typedTextElement) {
-    const commands = [
-        'whoami',
-        'cat about.txt',
-        'ls skills/',
-        'git log --projects',
-        'echo "Welcome to my portfolio!"'
-    ];
-
-    let commandIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeCommand() {
-        const currentCommand = commands[commandIndex];
-
-        if (isDeleting) {
-            typedTextElement.textContent = currentCommand.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typedTextElement.textContent = currentCommand.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 50 : 100;
-
-        if (!isDeleting && charIndex === currentCommand.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            commandIndex = (commandIndex + 1) % commands.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(typeCommand, typeSpeed);
-    }
-
-    setTimeout(typeCommand, 1000);
-}
 
 // ==========================================
 // ROLE TEXT ROTATION
