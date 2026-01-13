@@ -1332,6 +1332,16 @@ body {
     text-overflow: ellipsis;
 }
 
+.skill-link {
+    text-decoration: none;
+    display: inline-block;
+    white-space: normal;
+    text-overflow: clip;
+    max-width: 280px;
+    line-height: 1.4;
+    text-align: center;
+}
+
 .skill-tag {
     display: flex;
     align-items: center;
@@ -1355,10 +1365,6 @@ body {
     transition: width 1s ease;
 }
 
-.skill-link {
-    text-decoration: none;
-    display: inline-block;
-}
 
 .skill-tags span:hover,
 .skill-link:hover {
