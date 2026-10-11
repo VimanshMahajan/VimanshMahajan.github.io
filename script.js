@@ -217,11 +217,12 @@ window.addEventListener('scroll', () => {
 const roleTextElement = document.getElementById('role-text');
 if (roleTextElement) {
     const roles = [
+        'Engineering Analyst',
         'Software Engineer',
-        'ML | NLP Enthusiast',
-        'Full Stack Developer',
+        'Full-Stack Developer',
+        'ML / NLP Researcher',
         'Problem Solver',
-        'Tech Innovator'
+        'IIIT-Delhi CSE'
     ];
 
     let roleIndex = 0;
@@ -251,7 +252,7 @@ function animateCounters() {
     counters.forEach(counter => {
         const target = counter.getAttribute('data-count');
 
-        // Skip if no data-count attribute (for non-numeric values like "Fortune", "IIITD")
+        // Skip if no data-count attribute (for non-numeric values like "BNY" or "IIIT-Delhi")
         if (!target) {
             return;
         }
@@ -264,7 +265,7 @@ function animateCounters() {
             if (count < targetNum) {
                 count += increment;
                 const displayValue = Math.ceil(count);
-                // Add + for numbers except 3 (for "3 Research @ IIITD")
+                // Add + for numbers except 3 (for the third hero stat)
                 counter.textContent = targetNum === 3 ? displayValue : displayValue + '+';
                 setTimeout(updateCounter, 20);
             } else {
@@ -464,7 +465,7 @@ window.addEventListener('load', () => {
 // EASTER EGG - CONSOLE MESSAGE
 // ==========================================
 console.log('%c🚀 Welcome to Vimansh\'s Portfolio! ', 'background: linear-gradient(135deg, #00d4ff, #00ffaa); color: #0a0e1a; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 10px;');
-console.log('%c💼 Looking for a passionate developer?', 'color: #8b949e; font-size: 14px; padding: 5px;');
+console.log('%c💼 Engineering Analyst at BNY • IIIT-Delhi CSE', 'color: #8b949e; font-size: 14px; padding: 5px;');
 console.log('%c📧 Let\'s connect: vimansh22572@iiitd.ac.in', 'color: #00d4ff; font-size: 14px; padding: 5px;');
 console.log('%c⚡ Fun fact: This portfolio has custom cursor, particle effects, and magnetic interactions!', 'color: #00ffaa; font-size: 12px; padding: 5px; font-style: italic;');
 
@@ -542,4 +543,3 @@ if ('serviceWorker' in navigator) {
     //     .then(reg => console.log('Service Worker registered', reg))
     //     .catch(err => console.log('Service Worker registration failed', err));
 }
-
